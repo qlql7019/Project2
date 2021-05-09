@@ -89,12 +89,12 @@ void datecmp(){
 			printf("text2 is early\n");
 
 		else if (localtime(&(stat1.st_mtime)) ->tm_mday < localtime(&(stat2.st_mtime))->tm_mday)
-			printf("text1 is earlyr\n");
+			printf("text1 is early\n");
 
 		else
 			printf("same date\n");
 	}
-
+	printf("\n");
 }
 
 //두 개의 파일 수정 시간을 비교하는 함수 작성
