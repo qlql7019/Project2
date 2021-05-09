@@ -77,25 +77,31 @@ void blockcmp(){
 
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
 void datecmp(){
-	printf("date compare \n");
-	if (time1->tm_mon <= time2->tm_mon && time1->tm_mday < time2->tm_mday)
+	printf("date compare\n");
+	if (localtime(&(stat1.st_mtime))->tm_mon > localtime(&(stat2.st_mtime))->tm_mon)
+		printf("text 2's Modified date is earier than text 2\n");
+
+	else if (localtime(&(stat1.st_mtime))->tm_mon < localtime(&(stat2.st_mtime))->tm_mon)
 		printf("text 1's Modified date is earier than text 2\n");
-	else if (time1->tm_mon == time2->tm_mon && time1->tm_mday == time2->tm_mday)
-		printf("text 1's Modified date is the same as text 2 \n");
 	else
-		printf("text 2's Modified date is earier than text 1\n");
+		printf("text 1's Modified date is earier than text 2\n");
+
+
+	printf("\n");
 }
 
 //두 개의 파일 수정 시간을 비교하는 함수 작성
 void timecmp(){
-	int text1_time = time1->tm_hour * 60 + time1->tm_sec;
-	int text2_time = time2->tm_hour * 60 + time2->tm_sec;
+	int text1_time = localtime(&(stat1.st_mtime))->tm_hour * 60 + localtime(&(stat1.st_mtime))->tm_sec;
+	int text2_time = localtime(&(stat2.st_mtime))->tm_hour * 60 + localtime(&(stat2.st_mtime))->tm_sec;
 
 	printf("time compare \n");
 	if (text1_time < text2_time)
 		printf("text 1's Modified time is earier than text 2\n");
-	else if (text1_time = text2_time)
+	else if (text1_time == text2_time)
 		printf("text 1's Modified time is the same as text 2 \n");
 	else
 		printf("text 2's Modified time is earier than text 1\n");
+
+	printf("\n");
 }
