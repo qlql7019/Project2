@@ -94,7 +94,7 @@ void timecmp(){
 	printf("time compare \n");
 	if (text1_time < text2_time)
 		printf("text 1's Modified time is earier than text 2\n");
-	else if (text1_time = text2_time)
+	else if (text1_time == text2_time)
 		printf("text 1's Modified time is the same as text 2 \n");
 	else
 		printf("text 2's Modified time is earier than text 1\n");
